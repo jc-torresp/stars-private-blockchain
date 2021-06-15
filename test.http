@@ -21,12 +21,12 @@ Content-Type: application/json
 
 {
   "address": "n4aqru1mgMDcPeyy3qemMg4iEhkBoKzDFJ",
-  "signature": "ILHfPwOrOb69p3gG9BH97EBVPLuHsuGzK2MFxYRwKF37SQYC1282rqzKJCiQ70kTzrJN8QCnCrBNFXdeQGnJByQ=",
-  "message": "2N8RcCnzhhD6d6CYYderqcnvKLY4vsnPwVk:1623724573:starRegistry",
+  "signature": "HzpGE3TVwb4XrXzMd2rKO5GlDm/F/aQxClFh6eMiZvrcAdF/EaQcoUkFRMMr703y5ysBumBK59C+QriYekyuJlQ=",
+  "message": "2N8RcCnzhhD6d6CYYderqcnvKLY4vsnPwVk:1623769008:starRegistry",
   "star": {
     "dec": "68° 52' 56.9",
     "ra": "16h 29m 1.0s",
-    "story": "Testing the story 3"
+    "story": "Testing the story 4"
   }
 }
 
@@ -36,5 +36,8 @@ GET http://localhost:8000/blocks/n4aqru1mgMDcPeyy3qemMg4iEhkBoKzDFJ
 Accept: application/json
 
 ### Retrieve Block by Hash
-GET localhost:8000/block/hash/
+GET localhost:8000/block/hash/9925989ae984b70e71c8d16660512067346d041a21d6592c37b45ff49c28399c
 Accept: application/json
+
+### Validate Chain
+GET localhost:8000/validate
