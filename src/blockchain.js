@@ -64,15 +64,21 @@ class Blockchain {
     _addBlock(block) {
         let self = this;
         return new Promise(async (resolve, reject) => {
-           block.height = self.chain.length;
-           self.height = block.height;
-           block.time = new Date().getTime().toString().slice(0, -3);
-           if (block.height > 0) {
-               block.previousBlockHash = self.chain[self.chain.length - 1].hash;
-           }
-           block.hash = SHA256(JSON.stringify(self)).toString();
-           self.chain.push(block);
-           resolve(block);
+            self.validateChain().then(validationResults => {
+                if (validationResults.length > 0) {
+                    return reject('Chain is defective, it is not possible to add new blocks.');
+                }
+
+                block.height = self.chain.length;
+                self.height = block.height;
+                block.time = new Date().getTime().toString().slice(0, -3);
+                if (block.height > 0) {
+                    block.previousBlockHash = self.chain[self.chain.length - 1].hash;
+                }
+                block.hash = SHA256(JSON.stringify(self)).toString();
+                self.chain.push(block);
+                resolve(block);
+            });
         });
     }
 
